@@ -6,3 +6,85 @@
 @media(max-width:840px){.app-shell{display:block}.sidebar{position:fixed;left:0;top:0;width:270px;transform:translateX(-105%);transition:transform .25s;box-shadow:var(--shadow);z-index:60}.sidebar.open{transform:translateX(0)}.mobile-shade.show{display:block;position:fixed;inset:0;background:#10271d88;z-index:55}.mobile-only{display:grid}.topbar{height:65px}.hero-art{display:none}.hero{min-height:255px}.search-button{min-width:auto}.search-button span:nth-child(2),.search-button kbd{display:none}.search-button span:first-child{font-size:20px}.main-footer{padding:18px 22px}#mainContent{padding-top:27px}.demo-split{grid-template-columns:1fr 1fr}}
 @media(max-width:610px){body{font-size:13px}.card-grid,.stats-row,.split-panels,.source-list,.glossary-grid{grid-template-columns:1fr}.hero{padding:29px 24px;min-height:auto}.hero h1{font-size:35px}.hero-actions{gap:7px}.topic-card{min-height:170px}.demo-split{grid-template-columns:1fr}.demo-body{padding:17px}.code-notes{grid-template-columns:1fr}.lesson-header{flex-direction:column}.lesson-header .btn{align-self:flex-start}.chapter{padding:17px;grid-template-columns:24px 1fr}.chapter-no{width:25px;height:25px}.main-footer{flex-direction:column}.topbar{padding:0 16px;gap:8px}.topbar-right{gap:7px}.breadcrumb{font-size:10px}.lesson-header .page-title{font-size:33px}.river-scene{grid-template-columns:1fr 65px 1fr}.shore{padding:6px;min-height:160px}.shore span{font-size:10px}.river-water{height:160px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* ===========================================================
+   ALGORİTMA ATLASI V2 — Öğrenci odaklı okuma ve etkileşim
+   Mevcut renk teması ve kart kimliği korunmuştur.
+   =========================================================== */
+:root{--focus:#137d71}
+:root[data-theme="dark"]{--focus:#90e0c5}
+.skip-link{position:fixed;top:-90px;left:16px;z-index:200;background:var(--surface);border:2px solid var(--focus);border-radius:9px;padding:10px 16px;font-weight:700}
+.skip-link:focus{top:12px}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.continue-strip{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow2);border-radius:16px;padding:19px 25px;margin:19px 0 22px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.continue-strip h2{font-size:19px;letter-spacing:-.5px;margin:4px 0}
+.continue-strip p{font-size:12px;color:var(--muted);margin:0}
+.continue-strip b{color:var(--text)}
+.continue-eyebrow{font-size:10px;font-weight:800;letter-spacing:1.4px;color:var(--accent)}
+.continue-strip .btn{flex-shrink:0}
+.reading-links{position:sticky;top:62px;z-index:12;display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;gap:5px;padding:9px;margin:-2px 0 0;border-radius:13px 13px 0 0;background:var(--surface);border:1px solid var(--line);box-shadow:0 9px 25px rgba(20,57,43,.055)}
+.reading-links button{font-size:11px;font-weight:700;color:var(--muted);padding:8px 12px;background:transparent;border:0;border-radius:8px;white-space:nowrap;transition:background .16s,color .16s}
+.reading-links button:hover,.reading-links button.active{background:var(--accent-light);color:var(--accent)}
+.lesson-reading-progress{height:3px;background:var(--line);position:sticky;top:121px;z-index:11;border-radius:0 0 3px 3px;overflow:hidden}
+.lesson-reading-progress span{display:block;height:100%;width:0;background:var(--accent);transition:width .12s linear}
+.module-section{scroll-margin-top:145px;margin-top:47px}
+.module-section h2{font-size:25px;line-height:1.25;letter-spacing:-.6px}
+.module-section .subline{font-size:13px;line-height:1.75}
+.chapter{padding:22px 25px;gap:17px}
+.chapter h3{font-size:15px}
+.chapter p{font-size:13px;line-height:1.9}
+.prereq{margin-top:15px;padding:17px 19px;border-radius:13px;background:var(--surface2);border:1px solid var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.prereq>b{font-size:12px}
+.prereq>div{display:flex;flex-wrap:wrap;gap:7px}
+.prereq span{display:inline-flex;border:1px solid var(--line);background:var(--surface);padding:5px 11px;border-radius:30px;font-size:11px;color:var(--muted);font-weight:600}
+.deep-intro{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+.deep-intro>div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:var(--shadow2)}
+.deep-intro>div:first-child{border-left:4px solid var(--accent)}
+.deep-label{color:var(--accent);font-weight:800;font-size:10px;letter-spacing:1.6px}
+.deep-intro p{font-size:13px;line-height:1.85;margin:12px 0 0}
+.walkthrough{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--surface)}
+.walkthrough-head{display:grid;grid-template-columns:75px 1fr;padding:12px 22px;font-weight:800;font-size:10px;color:var(--muted);letter-spacing:1px;background:var(--surface2)}
+.walkthrough-row{display:grid;grid-template-columns:75px 1fr;padding:18px 22px;border-top:1px solid var(--line);align-items:flex-start}
+.step-pill{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;color:var(--accent);font-size:12px;font-weight:800;background:var(--accent-light)}
+.walkthrough-row h3{font-size:14px;margin:1px 0 5px}
+.walkthrough-row p{font-size:12.5px;color:var(--muted);line-height:1.85;margin:0}
+.subhead{font-size:17px;font-weight:800;margin:27px 0 13px}
+.pseudo-panel{border-radius:15px;background:var(--code);color:#c9decf;overflow:hidden;border:1px solid #243f34}
+.pseudo-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 17px;border-bottom:1px solid #314a3d;font-size:11px;color:#b9d5c7;font-weight:800}
+.pseudo-head .btn{background:#28483b;color:#d9f4e5;border-color:#375e4c}
+.pseudo-panel pre{margin:0;overflow:auto;padding:22px 24px;white-space:pre;tab-size:4;font:12px/1.9 Consolas,Menlo,monospace}
+.tiny-info{font-size:11px;color:var(--muted);line-height:1.75}
+.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:23px}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:22px;box-shadow:var(--shadow2)}
+.insight-card h3{font-size:15px;margin:10px 0}
+.insight-card p{font-size:12.5px;line-height:1.85;color:var(--muted);margin:0}
+.insight-icon{font-size:24px;color:var(--accent);font-family:serif;font-weight:600}
+.debug-grid{display:grid;gap:9px}
+.debug-detail,.guided-exercise{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.debug-detail summary,.guided-exercise summary{cursor:pointer;font-size:12.5px;font-weight:750;padding:15px 19px;list-style-position:inside;transition:background .16s}
+.debug-detail summary:hover,.guided-exercise summary:hover{background:var(--surface2)}
+.debug-detail[open] summary,.guided-exercise[open] summary{background:var(--accent-light);color:var(--accent)}
+.debug-detail p{margin:0;padding:16px 20px;font-size:12.5px;line-height:1.85;color:var(--muted)}
+.key-summary{margin-top:22px;padding:21px 26px;border-radius:15px;background:var(--surface2);border:1px solid var(--line)}
+.key-summary>b{font-size:13px}
+.key-summary ol{margin:12px 0 0;padding-left:20px;font-size:12.5px;line-height:2;color:var(--muted)}
+.guided-exercise{margin-top:17px;border-color:var(--accent)}
+.exercise-inner{padding:19px 21px}
+.exercise-inner h3{font-size:13px;margin:0 0 7px}
+.exercise-inner p{font-size:12.5px;color:var(--muted);line-height:1.9;margin:0}
+.code-note{font:inherit;color:var(--text);text-align:left;display:block;width:100%;cursor:pointer;transition:border .16s,transform .16s,box-shadow .16s}
+.code-note:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow2)}
+.code-note-top{display:flex;justify-content:space-between;gap:9px;align-items:flex-start}
+.code-note-top>span{color:var(--accent);font-size:16px;font-weight:800}
+.code-scroll{max-height:510px}
+.code-line.selected{box-shadow:inset 3px 0 0 #a3dd9c}
+.quiz-score{margin-top:15px;padding:13px 18px;border-radius:12px;background:var(--surface2);font-size:12px;color:var(--muted);font-weight:700}
+@media(min-width:841px){.reading-links{top:64px}}
+@media(max-width:840px){.reading-links{top:65px}.lesson-reading-progress{top:122px}.deep-intro,.insight-grid{grid-template-columns:1fr}.continue-strip{align-items:flex-start}}
+@media(max-width:610px){.continue-strip{flex-direction:column;padding:18px;gap:13px}.continue-strip .btn{width:100%;text-align:center}.reading-links{margin:0 -10px 0;padding:7px 8px;border-radius:9px}.reading-links button{font-size:11px;padding:9px 10px}.lesson-reading-progress{margin:0 -10px}.module-section{margin-top:35px}.module-section h2{font-size:22px}.deep-intro>div,.insight-card{padding:17px}.walkthrough-row{grid-template-columns:45px 1fr;padding:15px 13px}.walkthrough-head{grid-template-columns:45px 1fr;padding:10px 13px}.walkthrough-row p,.insight-card p{font-size:12.5px}.pseudo-panel pre{font-size:11px;padding:16px}.prereq{padding:14px}.chapter{padding:17px}.code-note{padding:14px}.module-section{scroll-margin-top:142px}}
+/* Sabit üst çubuk ve ders içi gezinme birlikte çalışır. */
+.topbar{position:sticky;top:0;z-index:21}
+.reading-links{top:76px}
+.lesson-reading-progress{top:133px}
+@media(max-width:840px){.reading-links{top:65px}.lesson-reading-progress{top:121px}}
+@media(max-width:610px){.lesson-reading-progress{top:118px}}

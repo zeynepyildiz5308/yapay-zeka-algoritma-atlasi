@@ -2,7 +2,7 @@
 
 Türkçe, ücretsiz, etkileşimli bir ders arşivi. Ders sırasında yazılan gerçek Python uygulamaları üzerine inşa edilmiştir; öğrencinin konuyu **önce görmesi, sonra kodla ilişkilendirmesi ve son olarak kendini sınaması** hedeflenmiştir.
 
-![Sitenin önizlemesi](preview.png)
+**Sürüm 2:** Genişletilmiş konu anlatımı, beş adımlı çözüm izleri, sözde kod, yazılım uygulamaları, hata ayıklama soruları, etkileşimli ders içi gezinme ve kod satırına atlama. [Değişiklik listesi](CHANGELOG.md).
 
 ## İçerik
 
@@ -26,22 +26,17 @@ Bu site **saf HTML + CSS + JavaScript** kullanır. React/Vite/npm, paket kurulum
 - `styles.css` — ferah, mobil uyumlu açık/koyu tema
 - `content.js` — ders içerikleri, testler ve kaynak URL'leri
 - `app.js` — menüler, ilerleme, kod görüntüleme ve yedi interaktif deney
+- `guides.js` — yedi dersin ayrıntılı pedagojik rehberi ve ek öğrenme kaynakları
 - `codes/` — kullanıcının sağladığı yedi ayrı Python dosyasının **içerik değiştirilmeden** kopyaları
 - `netlify.toml` — Netlify statik yayın ayarı
 
 > Kaynak Python dosyalarının isimleri arşivde numaralı ve okunabilir şekilde yeniden adlandırıldı; **içerikleri değiştirilmedi**. İki XOX yüklemesi aynı içerikte olduğundan tek dosya saklandı.
 
-## GitHub'dan Netlify'a yayımlama
+## Var olan GitHub + Netlify sitesini güncelleme
 
 Ayrıntılı adımlar: [DEPLOY.md](DEPLOY.md).
 
-Kısa versiyon:
-
-1. Bu ZIP'in içeriğini çıkar. GitHub'da boş bir depo oluştur.
-2. `index.html`, `app.js`, `content.js`, `styles.css`, `codes/`, `preview.png`, `netlify.toml` ve diğer dosyaları deponun köküne yükle.
-3. Netlify → **Add new project** → **Import an existing project** → GitHub ile bağlan → deponu seç.
-4. **Build command:** boş bırak; **Publish directory:** `.` (nokta).
-5. Deploy'u başlat. Sonrasında GitHub'a gönderdiğin güncellemeler otomatik yayımlanır.
+Mevcut proje ve site zaten kurulu olduğu için **yeni Netlify projesi oluşturma**. ZIP içindeki dosyaları mevcut `zeynepyildiz5308/yapay-zeka-algoritma-atlasi` deposunun köküne aktar; commit ve push işlemi Netlify'da otomatik dağıtımı tetikler. Özellikle yeni `guides.js` dosyasının `index.html` ile aynı klasörde olduğuna dikkat et.
 
 Yerelde `index.html` dosyasını doğrudan çift tıklamak yerine, kodların `fetch` ile yüklenmesi için bir HTTP sunucusu kullan:
 
